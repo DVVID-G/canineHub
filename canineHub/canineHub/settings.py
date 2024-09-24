@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'psycopg2',
+    'canineHub',
+    'modelUser',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,7 @@ ROOT_URLCONF = 'canineHub.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +78,12 @@ WSGI_APPLICATION = 'canineHub.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres', # [YOUR - DBNAME]
+        'USER' : 'postgres.zigzforainffrcbiqwzl', # [YOUR - USER]
+        'PASSWORD' : 'Desarrollo2724', # [YOUR - PASSWORD] en el caso de supabase, password del proyecto
+        'HOST' : 'aws-0-us-west-1.pooler.supabase.com', # [YOUR - HOST]
+        'PORT' : '6543' # [YOUR - PORT]
     }
 }
 
