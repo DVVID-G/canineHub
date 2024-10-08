@@ -1,6 +1,6 @@
 
 from django.shortcuts import render, redirect
-from model_Users.users import User
+from model_Users.users import *
 
 def ListarUsuarios(request):
     users = User.objects.all()

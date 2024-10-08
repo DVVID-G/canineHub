@@ -22,8 +22,9 @@ from model_Users import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('admin/listar_usuarios/', views.ListarUsuarios, name='listar_usuarios'),
-    path('admin/crear_usuario/', views.CrearUsuario, name='crear_usuario'),
+    path('users/', include('users.routers')),
+    #path('admin/listar_usuarios/', views.ListarUsuarios, name='listar_usuarios'),
+    #path('admin/crear_usuario/', views.CrearUsuario, name='crear_usuario'),
     #path('', views.home, name='home'),
     #path('register/', views.register, name='register'),
     #path('task/', views.task, name='task'),
