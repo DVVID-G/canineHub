@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'canineHub',
     'modelUser',
     'model_Users',
+    'caninos',
 ]
 
 MIDDLEWARE = [

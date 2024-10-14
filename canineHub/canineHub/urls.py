@@ -13,7 +13,7 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+
 from django.contrib import admin
 from django.urls import path
 from model_Users import views
@@ -30,4 +30,16 @@ urlpatterns = [
     #path('task/', views.task, name='task'),
     #path('logout/', views.logoutuser, name='logout'),
     #path('login/', views.loginuser, name='login'),
+]"""
+
+# urls.py
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from caninos.views import CaninoViewSet
+
+router = DefaultRouter()
+router.register(r'caninos', CaninoViewSet)  # Esto crea las rutas CRUD para Canino
+
+urlpatterns = [
+    path('api/', include(router.urls)),  # Añade las rutas a la URL base /api/
 ]
