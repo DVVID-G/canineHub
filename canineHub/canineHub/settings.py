@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'psycopg2',
     'corsheaders',
     'canineHub',
-    'modelUser',
     'model_Users',
     'caninos',
     'pedidos',
+    'testimonios',
 ]
 
 MIDDLEWARE = [
