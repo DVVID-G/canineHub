@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'modelUser',
     'model_Users',
     'caninos',
+    'pedidos',
 ]
 
 MIDDLEWARE = [

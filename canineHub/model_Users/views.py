@@ -1,5 +1,5 @@
 
-from django.shortcuts import render, redirect
+"""from django.shortcuts import render, redirect
 from model_Users.users import *
 
 def ListarUsuarios(request):
@@ -39,4 +39,15 @@ def EliminarUsuario(request, email):
         user.delete()
         return redirect('listar_usuarios')
     else:
-        return render(request, 'eliminar_usuario.html', {'usuario': user})
+        return render(request, 'eliminar_usuario.html', {'usuario': user})"""
+
+from rest_framework import viewsets
+from .users import UsuarioManager,Usuario
+from .serializers import UserSerializer
+
+class UserViewSet(viewsets.ModelViewSet):  
+    queryset = Usuario.objects.all()  
+    serializer_class = UserSerializer
+    #permission_classes = [IsAuthenticated]  # Solo los usuarios autenticados pueden acceder a esta vista
+    #permission_classes = [IsAdminUser]  # Solo los administradores pueden acceder a esta vista
+    #permission_classes = [IsAuthenticatedOrReadOnly]  # Los usuarios autenticados pueden

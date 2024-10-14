@@ -36,10 +36,15 @@ urlpatterns = [
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from caninos.views import CaninoViewSet
+from pedidos.views import PedidoViewSet
+from model_Users.views import UserViewSet
 
 router = DefaultRouter()
 router.register(r'caninos', CaninoViewSet)  # Esto crea las rutas CRUD para Canino
+router.register(r'pedidos', PedidoViewSet)  # Esto crea las rutas CRUD para Pedido
+router.register(r'users', UserViewSet)  # Esto crea las rutas CRUD para User
 
 urlpatterns = [
     path('api/', include(router.urls)),  # Añade las rutas a la URL base /api/
+
 ]
