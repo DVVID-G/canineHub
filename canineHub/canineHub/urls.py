@@ -13,10 +13,42 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+
 from django.contrib import admin
 from django.urls import path
+from model_Users import views
+#from modelUser import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users/', include('users.routers')),
+    #path('admin/listar_usuarios/', views.ListarUsuarios, name='listar_usuarios'),
+    #path('admin/crear_usuario/', views.CrearUsuario, name='crear_usuario'),
+    #path('', views.home, name='home'),
+    #path('register/', views.register, name='register'),
+    #path('task/', views.task, name='task'),
+    #path('logout/', views.logoutuser, name='logout'),
+    #path('login/', views.loginuser, name='login'),
+]"""
+
+# urls.py
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from caninos.views import CaninoViewSet
+from pedidos.views import PedidoViewSet
+from model_Users.views import UserViewSet
+from testimonios.views import TestimonioViewSet
+from pedidoCanino.views import PedidoCaninoViewSet
+
+router = DefaultRouter()
+router.register(r'caninos', CaninoViewSet)  # Esto crea las rutas CRUD para Canino
+router.register(r'pedidos', PedidoViewSet)  # Esto crea las rutas CRUD para Pedido
+router.register(r'users', UserViewSet)  # Esto crea las rutas CRUD para User
+router.register(r'testimonios', TestimonioViewSet)  # Esto crea las rutas CRUD para Testimonio
+router.register(r'PedidoCanino', PedidoCaninoViewSet)  # Esto crea las rutas CRUD para PedidoCanino
+
+urlpatterns = [
+    path('api/', include(router.urls)),  # Añade las rutas a la URL base /api/
+
 ]
