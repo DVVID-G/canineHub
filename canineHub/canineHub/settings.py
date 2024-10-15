@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'caninos',
     'pedidos',
     'testimonios',
+    'pedidoCanino',
 ]
 
 MIDDLEWARE = [

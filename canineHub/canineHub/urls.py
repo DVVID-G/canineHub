@@ -39,12 +39,14 @@ from caninos.views import CaninoViewSet
 from pedidos.views import PedidoViewSet
 from model_Users.views import UserViewSet
 from testimonios.views import TestimonioViewSet
+from pedidoCanino.views import PedidoCaninoViewSet
 
 router = DefaultRouter()
 router.register(r'caninos', CaninoViewSet)  # Esto crea las rutas CRUD para Canino
 router.register(r'pedidos', PedidoViewSet)  # Esto crea las rutas CRUD para Pedido
 router.register(r'users', UserViewSet)  # Esto crea las rutas CRUD para User
 router.register(r'testimonios', TestimonioViewSet)  # Esto crea las rutas CRUD para Testimonio
+router.register(r'PedidoCanino', PedidoCaninoViewSet)  # Esto crea las rutas CRUD para PedidoCanino
 
 urlpatterns = [
     path('api/', include(router.urls)),  # Añade las rutas a la URL base /api/
