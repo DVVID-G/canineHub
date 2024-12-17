@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Roles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .table-actions button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Administración de Roles</h1>
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createUserModal">
+                    <i class="fas fa-user-plus"></i> Crear Usuario
+                </button>
+            </div>
+            <div class="col-md-8">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar por nombre o correo" aria-label="Search">
+                    <select class="form-select me-2">
+                        <option value="">Filtrar por Rol</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Asesor de ventas">Asesor de ventas</option>
+                    </select>
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Juan Pérez</td>
+                    <td>juan.perez@example.com</td>
+                    <td>Administrador</td>
+                    <td class="table-actions">
+                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <!-- Más filas dinámicas aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal Crear Usuario -->
+    <div class="modal fade" id="createUserModal" tabindex="-1" aria-labelledby="createUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createUserModalLabel">Crear Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="username" placeholder="Juan Pérez">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="email" placeholder="juan.perez@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Rol</label>
+                            <select id="role" class="form-select">
+                                <option value="">Seleccione un rol</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Asesor de ventas">Asesor de ventas</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Usuario -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Editar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="edit-username" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="edit-username" value="Juan Pérez">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-email" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="edit-email" value="juan.perez@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-role" class="form-label">Rol</label>
+                            <select id="edit-role" class="form-select">
+                                <option value="Administrador" selected>Administrador</option>
+                                <option value="Asesor de ventas">Asesor de ventas</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

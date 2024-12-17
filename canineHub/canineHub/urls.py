@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from model_Users import views
 #from modelUser import views
+from .views import registro_pedidos
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('registro_pedidos/', registro_pedidos, name='registro_pedidos'),
     path('users/', include('users.routers')),
     #path('admin/listar_usuarios/', views.ListarUsuarios, name='listar_usuarios'),
     #path('admin/crear_usuario/', views.CrearUsuario, name='crear_usuario'),

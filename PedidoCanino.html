@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pedido</title>
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="css/Styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Pedido</h1>
+        <form action="/registrar-pedido" method="POST" enctype="multipart/form-data">
+            <!-- Datos del Cliente -->
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </fieldset>
+
+            <!-- Información del Canino -->
+            <fieldset>
+                <legend>Información del Canino</legend>
+                <label for="canino">Selecciona el Canino:</label>
+                <select id="canino" name="canino" required>
+                    <option value="">-- Selecciona una opción --</option>
+                    <option value="canino1">Canino 1 - Raza Pequeña</option>
+                    <option value="canino2">Canino 2 - Raza Mediana</option>
+                    <option value="canino3">Canino 3 - Raza Grande</option>
+                </select>
+            </fieldset>
+
+            <!-- Información de Pago -->
+            <fieldset>
+                <legend>Información de Pago</legend>
+                <label for="metodo_pago">Método de Pago:</label>
+                <select id="metodo_pago" name="metodo_pago" required>
+                    <option value="">-- Selecciona un método de pago --</option>
+                    <option value="nequi">Nequi</option>
+                    <option value="daviplata">Daviplata</option>
+                    <option value="transferencia">Transferencia Bancaria</option>
+                    <option value="giro_gane">Giro GANE</option>
+                </select>
+
+                <label for="comprobante">Subir Comprobante de Pago:</label>
+                <input type="file" id="comprobante" name="comprobante" accept="image/*" required>
+            </fieldset>
+
+            <!-- Dirección de Envío -->
+            <fieldset>
+                <legend>Dirección de Envío</legend>
+                <label for="ciudad">Ciudad de Envío:</label>
+                <select id="ciudad" name="ciudad" required>
+                    <option value="">-- Selecciona una ciudad --</option>
+                    <option value="bogota">Bogotá</option>
+                    <option value="medellin">Medellín</option>
+                    <option value="cali">Cali</option>
+                </select>
+
+                <label for="direccion_envio">Dirección Completa:</label>
+                <input type="text" id="direccion_envio" name="direccion_envio" required>
+
+                <label for="direccion_facturacion">Dirección de Facturación:</label>
+                <input type="text" id="direccion_facturacion" name="direccion_facturacion" required>
+            </fieldset>
+
+            <!-- Botón de Envío -->
+            <div class="boton-envio">
+                <button type="submit">Registrar Pedido</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
